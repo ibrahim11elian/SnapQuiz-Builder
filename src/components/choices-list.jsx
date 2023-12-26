@@ -12,10 +12,7 @@ function Choices() {
     // Check if the maximum number of choices is reached
     if (choiceList.length < 6) {
       // Add a new choice with a unique ID based on milliseconds
-      setChoiceList([
-        ...choiceList,
-        { id: new Date().getMilliseconds(), value: "" },
-      ]);
+      setChoiceList([...choiceList, { id: new Date().getTime(), value: "" }]);
     } else {
       // Show an error toast if the maximum number of choices is reached
       toast.error("Maximum number of choices!", {
