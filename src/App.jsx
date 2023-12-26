@@ -1,4 +1,3 @@
-import { useState } from "react";
 import Choices from "./components/choices-list";
 import Question from "./components/question";
 import QuizResult from "./components/quiz-result";
@@ -9,8 +8,6 @@ import Developer from "./components/developer";
 
 // App component represents the main application
 function App() {
-  // State to store the generated result image
-  const [resultImage, setResultImage] = useState("");
   // Accessing the codeSnippet from the app context
   const { codeSnippet } = useAppContext();
 
@@ -40,12 +37,11 @@ function App() {
         // Create an image element and set its source to the data URL
         const img = new Image();
         img.src = dataUrl;
-        // Set the result image state with the outer HTML of the image element
-        setResultImage(img.outerHTML);
+
         // Create a link element for downloading the image
         const link = document.createElement("a");
         link.href = dataUrl;
-        link.download = "SnapQuizImage.png"; // Set the desired file name
+        link.download = `SnapQuiz-${new Date().getTime()}.png`; // Set the desired file name
         // Append the link to the document body, trigger a click, and remove the link
         document.body.appendChild(link);
         link.click();
@@ -76,12 +72,6 @@ function App() {
       <button className="btn-generate" onClick={generateImage}>
         Generate Image
       </button>
-
-      {/* Container to display the generated result image */}
-      <div
-        id="result-container"
-        dangerouslySetInnerHTML={{ __html: resultImage }}
-      />
 
       {/* Developer component */}
       <Developer />
