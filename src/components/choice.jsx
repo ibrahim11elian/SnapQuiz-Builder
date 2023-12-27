@@ -34,9 +34,9 @@ function Choice({ id, val, updateChoice, deleteChoice, label }) {
 
 // PropTypes for type-checking and documenting the expected props
 Choice.propTypes = {
-  id: PropTypes.string.isRequired, // Unique identifier for the choice
+  id: PropTypes.number.isRequired, // Unique identifier for the choice
   label: PropTypes.string.isRequired, // Label for the choice
-  val: PropTypes.string.isRequired, // Value of the choice
+  val: PropTypes.string, // Value of the choice
   updateChoice: PropTypes.func.isRequired, // Function to update the choice value
   deleteChoice: PropTypes.func.isRequired, // Function to delete the choice
 };
