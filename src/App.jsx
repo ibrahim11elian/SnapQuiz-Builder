@@ -34,18 +34,12 @@ function App() {
     domtoimage
       .toPng(node)
       .then((dataUrl) => {
-        // Create an image element and set its source to the data URL
-        const img = new Image();
-        img.src = dataUrl;
-
         // Create a link element for downloading the image
         const link = document.createElement("a");
         link.href = dataUrl;
         link.download = `SnapQuiz-${new Date().getTime()}.png`; // Set the desired file name
-        // Append the link to the document body, trigger a click, and remove the link
-        document.body.appendChild(link);
+        // trigger a click on the link to download
         link.click();
-        document.body.removeChild(link);
       })
       .catch((error) => {
         // Log an error if there's an issue capturing the screenshot
