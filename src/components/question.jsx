@@ -1,11 +1,12 @@
 // Importing programming languages data and the context hook
 import programmingLanguages from "../data/language";
 import { useAppContext } from "../utilities/context";
+import CodeEditor from "./code-editor";
 
 // Question component represents the section where users select the programming language and enter code
 function Question() {
   // Destructuring values from the app context
-  const { codeSnippet, setCodeSnippet, pl, setPL } = useAppContext();
+  const { pl, setPL } = useAppContext();
 
   // JSX for the Question component
   return (
@@ -33,14 +34,8 @@ function Question() {
           ))}
         </select>
       </div>
-
-      {/* Textarea for entering or pasting code snippet */}
-      <textarea
-        id="codeSnippet"
-        value={codeSnippet}
-        placeholder="Type or paste your code here 😊..."
-        onChange={(e) => setCodeSnippet(e.target.value)}
-      />
+      {/* CodeEditor for entering or pasting code snippet and format it*/}
+      <CodeEditor />
     </>
   );
 }
