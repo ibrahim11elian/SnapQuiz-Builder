@@ -3,7 +3,6 @@ import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { useAppContext } from "../utilities/context";
 import codeImage from "../assets/code.png";
-import think from "../assets/think.png";
 
 // Base URL for language icons
 let languageIconBaseURL = "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/";
@@ -32,6 +31,8 @@ function QuizResult() {
     <div id="quiz-image">
       {/* Header for the quiz result */}
       <h2 className="head">What do you think is the expected output? 🤔</h2>
+      <div className="blob"></div>
+      <div className="blob"></div>
 
       {/* SyntaxHighlighter to display code snippet with syntax highlighting */}
       <SyntaxHighlighter id="code" language={pl} style={vscDarkPlus} wrapLines>
@@ -58,8 +59,6 @@ function QuizResult() {
 
       {/* Container for images, including code, think, and language icon */}
       <div className="images">
-        <img src={codeImage} className="icon" alt="code" />
-        <img src={think} className="icon" alt="think" />
         {/* Displaying the language icon if available, otherwise fallback to codeImage */}
         <img
           src={imageAvailable ? langImgURL : codeImage}
