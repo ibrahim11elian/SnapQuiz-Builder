@@ -289,11 +289,12 @@ textarea,
   -ms-border-radius: 50%;
   -o-border-radius: 50%;
   border-right: 1.5px solid #444cf7a1;
+  display: flex;
+  justify-content: center;
 }
 
 .character img {
   display: block;
-  width: 100%;
   height: 100%;
 }
 
