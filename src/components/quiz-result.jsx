@@ -4,8 +4,18 @@ import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { useAppContext } from "../utilities/context";
 import codeImage from "../assets/code.png";
 
+import like from "../assets/reactions/like.png";
+import love from "../assets/reactions/love.png";
+import insightful from "../assets/reactions/insightful.png";
+import support from "../assets/reactions/support.png";
+import celebrate from "../assets/reactions/celebrate.png";
+import funny from "../assets/reactions/funny.png";
+
 // Base URL for language icons
-let languageIconBaseURL = "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/";
+const languageIconBaseURL =
+  "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/";
+
+const reactionIcons = [like, celebrate, support, love, insightful, funny];
 
 // QuizResult component displays the quiz result, including code, choices, and icons
 function QuizResult() {
@@ -47,7 +57,7 @@ function QuizResult() {
                 <div className="choice-container" key={ele.id}>
                   {/* Displaying characters A, B, C, ... for each choice */}
                   <span className="character">
-                    {String.fromCharCode(65 + i)}
+                    <img src={reactionIcons[i]} alt={i} />
                   </span>
                   {/* Displaying the choice text */}
                   <div className="choice-text">{ele.value}</div>
